@@ -40,3 +40,21 @@ def show_image(original_image, transformed_image):
 
     # Display the plot
     plt.show()
+
+def plot_norm_excersice(X,Y,Z):
+    """
+    Plot the quadratic form sqrt(x.T  Sigma  x)
+    
+    parameters:
+        -X: np.array, x values
+        -Y: np.array, y values
+        -Z: np.array, z values of the norm.
+    """
+    plt.figure(figsize=(6,6))
+    plt.contour(X, Y, Z, levels=[1], colors='blue')
+    plt.title(r'Norm  $\sqrt{x^T \Sigma x}$')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.grid(True)
+    plt.axis('equal')
+    plt.show()
