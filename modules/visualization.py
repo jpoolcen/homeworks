@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 def plot_points(point, transformed_point):
     """
@@ -57,4 +58,21 @@ def plot_norm_excersice(X,Y,Z):
     plt.ylabel('y')
     plt.grid(True)
     plt.axis('equal')
+    plt.show()
+
+def plot_periodic_data(x, y,y_true):
+    """
+    Plot the data.
+    Parameters:
+        x: array of shape (N,), the input data
+        y: array of shape (N,), the output data
+    """
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(x=x, y=y, label='Data Points', color='blue', alpha=0.2)
+    sns.lineplot(x=x, y=y_true, label='True Function', color='black')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title('Synthetic Data with Periodic Pattern')
+    plt.legend()
+    plt.savefig('synthetic_data.png')
     plt.show()
