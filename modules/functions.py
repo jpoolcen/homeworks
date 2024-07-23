@@ -112,3 +112,11 @@ def fx(x1, x2, x3):
     returns:array
     """
     return 10*x1**2 - x1*x2 - 5*x1*x3 + 5*x1 + 10*x2**2 - 11*x2*x3 - 2*x2 - 5*x3*x1 - 11*x3*x2 - 4*x2 + 6*x3 + 9
+
+def center_data(X):
+    """
+    function to center the data. X-X.mean(axis=0)
+    parameters: X: numpy array of shape (n, d), the data matrix
+    returns: X: numpy array of shape (n, d), the data matrix
+    """
+    return X - np.mean(X, axis=0)

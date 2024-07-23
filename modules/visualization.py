@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 def plot_points(point, transformed_point):
     """
@@ -75,4 +76,30 @@ def plot_periodic_data(x, y,y_true):
     plt.title('Synthetic Data with Periodic Pattern')
     plt.legend()
     plt.savefig('synthetic_data.png')
+    plt.show()
+
+
+def plot_classfication(array_accuracy_implementation, array_accuracy_sklearn, xlabel, ylabel, title,filename):
+    """
+    This function plots the classification data to homeworks/8-homework_jmpc
+    """
+    feature_numbers = np.arange(1, len(array_accuracy_implementation) + 1)
+    plt.figure(figsize=(10, 6))
+    # PCA Scores
+    plt.plot(feature_numbers,array_accuracy_implementation,color='red', label='PCA Scores',linestyle='dashed')
+    plt.scatter(feature_numbers, array_accuracy_implementation,color='red',marker='s') 
+    # PCA
+    plt.plot(feature_numbers,array_accuracy_sklearn,color='blue', label='PCA')
+    plt.scatter(feature_numbers, array_accuracy_sklearn,color='blue') 
+
+    # Add labels and title
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.title(title)
+    # Show the legend
+    plt.legend(loc='lower right')
+    # Set xticks
+    plt.xticks(feature_numbers)
+    plt.savefig(filename, dpi=300)
+    # Display the plot
     plt.show()
